@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Mount autoinstall
+Comment=Mount autoinstall
+Exec=sudo mount -t nfs4 laus01:/autoinstall /opt/autoinstall
+Path=/home/teachers/ttfinr/myGit
+Icon=/usr/share/icons/oxygen/128x128/mimetypes/application-x-smb-server.png
+Terminal=true
+Type=Application
+Categories=Utility;Application;Development;
+Comment[de_AT]=Mount autoinstall
