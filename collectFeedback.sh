@@ -17,6 +17,7 @@ echo collecting Data from $FEEDBACK_DATA_PATH
 echo "" > $FEEDBACK_DATA_FILE
 
 let counter=0
+let negativ_counter=0
 # process all files
 for file in $(ls);
 do
@@ -40,6 +41,7 @@ do
     
     # write return value of last command to $FEEDBACK_DATA_FILE
     value=$?
+    let negativ_counter+=$value
     echo "$room $pc $value" >> $FEEDBACK_DATA_FILE
 done
 
@@ -48,6 +50,10 @@ cd $CURRENT_DIR
 sudo umount /mnt
 
 echo "$counter files processed"
+let positiv_counter=$counter-$negativ_counter
+echo "$positiv_counter did match search string"
+echo "$negativ_counter dit NOT match search string"
+
 echo "$DIAGRAM_TITLE"
 gnuplot -persist <<-EOFMarker
     set title "$DIAGRAM_TITLE" font ",16" textcolor rgbcolor "royalblue"
